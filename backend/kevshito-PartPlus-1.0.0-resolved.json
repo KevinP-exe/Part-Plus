@@ -1,0 +1,383 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Simple Inventory API",
+    "description": "This is a simple API",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/kevshito/PartPlus/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "admins",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "developers",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "paths": {
+    "/clients": {
+      "get": {
+        "tags": [],
+        "summary": "Obtener todos los clientes",
+        "description": "Funcion para obtener todos los clientes",
+        "operationId": "get-clients",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [],
+        "summary": "Actualizar un cliente",
+        "description": "metodo para actualizar un cliente",
+        "operationId": "put-clients",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/zip": {
+              "schema": {
+                "$ref": "#/components/schemas/clients_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "summary": "Crear un nuevo cliente",
+        "description": "metodo para crear un nuevo cliente ",
+        "operationId": "post-clients",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clients_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "summary": "Eliminar un cliente",
+        "description": "metodo para eliminar un cliente",
+        "operationId": "delete-clients",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/reservations": {
+      "get": {
+        "tags": [],
+        "summary": "Obtener todas las reservas",
+        "description": "metodo para obtener todas las reservas",
+        "operationId": "get-reservations",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [],
+        "summary": "Actualizar una reserva",
+        "description": "metodo para actualizar una reserva",
+        "operationId": "put-reservations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/reservations_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "summary": "Crear una nueva reserva",
+        "description": "metodo para crear una nueva reserva",
+        "operationId": "post-reservations",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/reservations_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "summary": "Eliminar una reserva",
+        "description": "Metodo para eliminar una reserva ",
+        "operationId": "delete-reservations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/reservations/client": {
+      "get": {
+        "tags": [],
+        "summary": "Obtener reservas de un cliente",
+        "description": "obtener reservas de un cliente por el ID",
+        "operationId": "get-reservations-client",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "clients_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "yulmczdgew51s"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "oqewfx0n64xqi"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "995w4g4ryme9y"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "x9jfucjl7opij"
+            }
+          },
+          "age": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "03aoj82qyzp7r"
+            }
+          }
+        }
+      },
+      "clients_body_1": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "k2i2zmivv6qct"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "uw4bon4cvgnpz"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "gufxe5ns04651"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "4eph5slhyeey5"
+            }
+          },
+          "age": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "v53c1b17vxmf2"
+            }
+          }
+        }
+      },
+      "reservations_body": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "lifftwyygk1kj"
+            }
+          },
+          "vehicle": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "gzdnluk7wcp9f"
+            }
+          },
+          "service": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "8t075b9wn79kd"
+            }
+          },
+          "status": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "crez0qgawelcx"
+            }
+          }
+        }
+      },
+      "reservations_body_1": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "xfll66kmvha2p"
+            }
+          },
+          "vehicle": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "406hura41rp70"
+            }
+          },
+          "service": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "ylakxh66lg39f"
+            }
+          },
+          "status": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "ji1519ds8u8vy"
+            }
+          }
+        }
+      }
+    }
+  }
+}
